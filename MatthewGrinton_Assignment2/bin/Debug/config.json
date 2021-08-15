@@ -1,0 +1,5 @@
+{
+    "ConnectionStrings": {
+        "MovieList": "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\mattg\\source\\repos\\MatthewGrinton_Assignment2\\MatthewGrinton_Assignment2\\AppData\\MovieList.mdf;Integrated Security=True"
+    }
+}

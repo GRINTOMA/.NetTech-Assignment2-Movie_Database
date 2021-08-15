@@ -1,0 +1,231 @@
+﻿<Window x:Class="MatthewGrinton_Assignment2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MatthewGrinton_Assignment2"
+        mc:Ignorable="d"
+        Title="Movies-R-Us" Height="449.099" Width="800">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,0,1" LostFocus="Movie_Name_Focus_Changed">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="94*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="61*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="Movie_List" 
+                  HorizontalAlignment="Left" 
+                  Height="183" 
+                  Margin="0,27,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="680" 
+                  SelectionChanged="Movie_List_SelectionChanged" 
+                  Grid.Column="1" 
+                  Grid.RowSpan="2"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="320"
+                                            DisplayMemberBinding="{Binding Path=name}" >
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="name" Click="Movie_List_ColumnHeader_Click">Name</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100"
+                                            DisplayMemberBinding="{Binding Path=genre}" >
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="genre" Click="Movie_List_ColumnHeader_Click">Genre</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100"
+                                            DisplayMemberBinding="{Binding Path=duration}" >
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="duration" Click="Movie_List_ColumnHeader_Click">Duration</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="160"
+                                            DisplayMemberBinding="{Binding Path=price}" >
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="price" Click="Movie_List_ColumnHeader_Click">Price</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Name:" 
+               HorizontalAlignment="Left" 
+               Margin="148,91,0,0" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="0.194,0.205" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <TextBox x:Name="Movie_Name" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="197,91,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="159" 
+                 Grid.Column="1" 
+                 Grid.Row="1" 
+                 LostFocus="Movie_Name_Focus_Changed"
+                 TextAlignment="Left"/>
+        <Label Content="Release Date:" 
+               HorizontalAlignment="Left" 
+               Margin="148,130.675,0,0" 
+               VerticalAlignment="Top"
+               RenderTransformOrigin="0.194,0.205" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <Label Content="Location:" 
+               HorizontalAlignment="Left" 
+               Margin="171,169.675,0,0" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="0.194,0.205" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <Label Content="Genre:" 
+               HorizontalAlignment="Left" 
+               Margin="185,203.675,0,0" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="0.194,0.205" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <Label Content="Rating:" 
+               HorizontalAlignment="Left" 
+               Margin="413,129.675,0,0" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="0.194,0.205" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <Label Content="Duration:"
+               HorizontalAlignment="Left"
+               Margin="401,87.675,0,0" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="0.194,0.205" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <Label Content="Price:" 
+               HorizontalAlignment="Left" 
+               Margin="422,169.675,0,0" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="0.194,0.205" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <TextBox x:Name="Movie_Price" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="467,172.675,0,0" 
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Grid.Column="1" 
+                 Grid.Row="1" 
+                 LostFocus="Movie_Price_Focus_Changed"
+                 TextAlignment="Left"/>
+        <Button x:Name="Add" 
+                Content="Add Movie" 
+                HorizontalAlignment="Left" 
+                Margin="0,93.675,0,0" 
+                VerticalAlignment="Top" 
+                Width="104" 
+                Height="36" 
+                Click="Add_Click" 
+                Grid.Column="1" 
+                Grid.Row="1"/>
+        <Button x:Name="Edit" 
+                Content="Edit Movie" 
+                HorizontalAlignment="Left" 
+                Margin="0,151.675,0,0" 
+                VerticalAlignment="Top" 
+                Width="104" 
+                Height="36" 
+                Click="Edit_Click" 
+                Grid.Column="1" 
+                Grid.Row="1"/>
+        <Button x:Name="Delete" 
+                Content="Delete Movie" 
+                HorizontalAlignment="Left" 
+                Margin="0,209.675,0,0" 
+                VerticalAlignment="Top"
+                Width="104" 
+                Height="36" 
+                Click="Delete_Click" 
+                Grid.Column="1" 
+                Grid.Row="1"/>
+        <Button x:Name="Close" 
+                Content="Close" 
+                HorizontalAlignment="Left" 
+                Margin="630,240.675,0,0" 
+                VerticalAlignment="Top" 
+                Width="82" 
+                Height="26" 
+                Grid.Column="1" 
+                Click="Close_Click" 
+                Grid.Row="1"/>
+        <ComboBox x:Name="Movie_Genre" 
+                  HorizontalAlignment="Left" 
+                  Margin="236,206.675,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="120" 
+                  Grid.Column="1" 
+                  Grid.Row="1"/>
+        <DatePicker x:Name="Movie_Date" 
+                    HorizontalAlignment="Left" 
+                    Margin="236,133.675,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="120" 
+                    RenderTransformOrigin="0.559,0.958" 
+                    Height="23" 
+                    Grid.Column="1" 
+                    Grid.Row="1">
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <ComboBox x:Name="Movie_Rating" 
+                  HorizontalAlignment="Left" 
+                  Margin="467,133.675,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="120" 
+                  Grid.Column="1" 
+                  Grid.Row="1"/>
+        <ComboBox x:Name="Movie_Location" 
+                  HorizontalAlignment="Left" 
+                  Margin="236,169.675,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="120" 
+                  Grid.Column="1" 
+                  Grid.Row="1"/>
+        <Slider x:Name="Movie_Duration" 
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="467,93.675,0,0" 
+                VerticalAlignment="Top" 
+                Width="120" 
+                ValueChanged="Movie_Duration_ValueChanged"
+                Minimum="0"
+                Maximum="300"
+                Value="0"
+                IsSnapToTickEnabled="True"
+                TickFrequency="1"
+                Grid.Row="1"/>
+        <Label x:Name="Movie_Duration_Text" 
+               Content="0 min" 
+               Grid.Column="1" 
+               HorizontalAlignment="Left" 
+               Margin="592,88,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top"/>
+    </Grid>
+</Window>
